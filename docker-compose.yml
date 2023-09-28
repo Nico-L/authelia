@@ -59,9 +59,9 @@ services:
       - OIDC_USERINFO_URI=${OIDC_USERINFO_URI}
       - OIDC_DISPLAY_NAME=${OIDC_DISPLAY_NAME}
       - OIDC_USERNAME_CLAIM=email
-    ports:
+    #ports:
       #- 443:443
-      - 80:80
+      #- 80:80
     networks:
       - outline-internal
       - reverseproxy-nw
