@@ -6,23 +6,7 @@ services:
     networks:
       - outline-internal
 
-  outlinePostgres:
-    image: postgres:15
-    restart: always
-    container_name: outlinepostgres
-    security_opt:
-      - label:disable
-    ports:
-      - 5432:5432
-    #environment:
-    #  - POSTGRES_PASSWORD=bob
-    #  - POSTGRES_USER=outline
-    #  - POSTGRES_DB=outline
-    networks:
-      - outline-internal
-    volumes:
-      - ./container-data/db:/var/lib/postgresql/data
-      - /etc/localtime:/etc/localtime:ro
+
 
   outline:
     image: outlinewiki/outline:latest
