@@ -37,8 +37,8 @@ services:
       - UTILS_SECRET=${UTILS_SECRET}
       - DATABASE_URL=postgres://outline:${POSTGRES_PASSWORD}@outlinePostgres:5432/outline
       - REDIS_URL=redis://outlineRedis:6379
-      - URL=https://outline.luchier.fr
-      - PORT=80
+      - URL="https://outline.luchier.fr"
+      - PORT=443
       - AWS_ACCESS_KEY_ID=minio
       - AWS_REGION=us-east-1
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
