@@ -27,7 +27,7 @@ services:
     user: root
     restart: always
     container_name: outline
-    command: sh -c "yarn start"
+    command: sh -c "yarn start --env=production"
     depends_on:
       - outlinePostgres
       - outlineRedis
@@ -36,7 +36,7 @@ services:
       - FORCE_HTTPS=true
       - SECRET_KEY=${SECRET_KEY}
       - UTILS_SECRET=${UTILS_SECRET}
-      - DATABASE_URL=postgres://outline:${POSTGRES_PASSWORD}@outlinePostgres:5432/outline
+      - DATABASE_URL=postgres://outline:${POSTGRES_PASSWORD}@outlinePostgres:5432/outline?sslmode=disable
       - REDIS_URL=redis://outlineRedis:6379
       - URL="https://outline.luchier.fr"
       - PORT=443
