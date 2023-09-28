@@ -33,7 +33,7 @@ services:
       - outlinePostgres
       - outlineRedis
     environment:
-      - PGSSLMODE=disable
+      - PGSSLMODE=enable
       - SECRET_KEY=${SECRET_KEY}
       - UTILS_SECRET=${UTILS_SECRET}
       - DATABASE_URL=postgres://outline:${POSTGRES_PASSWORD}@outlinePostgres:5432/outline
