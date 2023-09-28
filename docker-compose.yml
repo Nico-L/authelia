@@ -28,7 +28,7 @@ services:
     user: root
     restart: always
     container_name: outline
-    command: sh -c "yarn start --env=production"
+    command: sh -c "yarn start"
     depends_on:
       - outlinePostgres
       - outlineRedis
