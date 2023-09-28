@@ -2,14 +2,14 @@ services:
   outlineRedis:
     image: redis
     restart: always
-    container_name: outline_redis
+    container_name: outlineredis
     networks:
       - outline-internal
 
   outlinePostgres:
     image: postgres:15
     restart: always
-    container_name: outline_postgres
+    container_name: outlinepostgres
     security_opt:
       - label:disable
     #environment:
