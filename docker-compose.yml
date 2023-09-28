@@ -33,7 +33,7 @@ services:
       - outlinePostgres
       - outlineRedis
     environment:
-      #- PGSSLMODE=disable
+      - PGSSLMODE=disable
       - FORCE_HTTPS=true
       - SECRET_KEY=${SECRET_KEY}
       - UTILS_SECRET=${UTILS_SECRET}
