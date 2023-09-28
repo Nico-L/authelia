@@ -13,7 +13,7 @@ services:
     security_opt:
       - label:disable
     environment:
-      - POSTGRES_PASSWORD=04516fe3680afd0041cff2bf151f41cd
+      - POSTGRES_PASSWORD=bob
       - POSTGRES_USER=outline
       - POSTGRES_DB=outline
     networks:
@@ -36,7 +36,7 @@ services:
       - FORCE_HTTPS=true
       - SECRET_KEY=${SECRET_KEY}
       - UTILS_SECRET=${UTILS_SECRET}
-      - DATABASE_URL=postgres://outline:04516fe3680afd0041cff2bf151f41cd@outlinePostgres:5432/outline?sslmode=disable
+      - DATABASE_URL=postgres://outline:bob@outlinePostgres:5432/outline?sslmode=disable
       - REDIS_URL=redis://outlineRedis:6379
       - URL="https://outline.luchier.fr"
       - PORT=443
