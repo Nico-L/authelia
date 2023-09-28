@@ -12,10 +12,10 @@ services:
     container_name: outline_postgres
     security_opt:
       - label:disable
-    environment:
-      - POSTGRES_PASSWORD=bob
-      - POSTGRES_USER=outline
-      - POSTGRES_DB=outline
+    #environment:
+    #  - POSTGRES_PASSWORD=bob
+    #  - POSTGRES_USER=outline
+    #  - POSTGRES_DB=outline
     networks:
       - outline-internal
     volumes:
@@ -31,34 +31,34 @@ services:
     depends_on:
       - outlinePostgres
       - outlineRedis
-    environment:
-      - PGSSLMODE=disable
-      - FORCE_HTTPS=true
-      - SECRET_KEY=${SECRET_KEY}
-      - UTILS_SECRET=${UTILS_SECRET}
-      - DATABASE_URL=postgres://outline:bob@outlinePostgres:5432/outline?sslmode=disable
-      - REDIS_URL=redis://outlineRedis:6379
-      - URL="https://outline.luchier.fr"
-      - PORT=443
-      - AWS_ACCESS_KEY_ID=minio
-      - AWS_REGION=us-east-1
-      - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
-      - AWS_S3_UPLOAD_BUCKET_URL=${WIKIDATA_URL}
-      - AWS_S3_UPLOAD_BUCKET_NAME=outline
-      - AWS_S3_FORCE_PATH_STYLE=true
-      - AWS_S3_ACL=private
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_FROM_EMAIL=${SMTP_FROM_EMAIL}
-      - SMTP_REPLY_EMAIL=${SMTP_REPLY_EMAIL}
-      - SMTP_SECURE=${SMTP_SECURE}
-      - OIDC_CLIENT_ID=${OIDC_CLIENT_ID}
-      - OIDC_CLIENT_SECRET=${OIDC_CLIENT_SECRET}
-      - OIDC_AUTH_URI=${OIDC_AUTH_URI}
-      - OIDC_TOKEN_URI=${OIDC_TOKEN_URI}
-      - OIDC_USERINFO_URI=${OIDC_USERINFO_URI}
-      - OIDC_DISPLAY_NAME=${OIDC_DISPLAY_NAME}
-      - OIDC_USERNAME_CLAIM=email
+    #environment:
+    #  - PGSSLMODE=disable
+    # - FORCE_HTTPS=true
+    #  - SECRET_KEY=${SECRET_KEY}
+    #  - UTILS_SECRET=${UTILS_SECRET}
+    #  - DATABASE_URL=postgres://outline:bob@outlinePostgres:5432/outline?sslmode=disable
+    #  - REDIS_URL=redis://outlineRedis:6379
+    #  - URL="https://outline.luchier.fr"
+    #  - PORT=443
+    #  - AWS_ACCESS_KEY_ID=minio
+    #  - AWS_REGION=us-east-1
+    #  - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
+    #  - AWS_S3_UPLOAD_BUCKET_URL=${WIKIDATA_URL}
+    #  - AWS_S3_UPLOAD_BUCKET_NAME=outline
+    #  - AWS_S3_FORCE_PATH_STYLE=true
+    #  - AWS_S3_ACL=private
+    #  - SMTP_HOST=${SMTP_HOST}
+    #  - SMTP_PORT=${SMTP_PORT}
+    #  - SMTP_FROM_EMAIL=${SMTP_FROM_EMAIL}
+    #  - SMTP_REPLY_EMAIL=${SMTP_REPLY_EMAIL}
+    #  - SMTP_SECURE=${SMTP_SECURE}
+    #  - OIDC_CLIENT_ID=${OIDC_CLIENT_ID}
+    #  - OIDC_CLIENT_SECRET=${OIDC_CLIENT_SECRET}
+    #  - OIDC_AUTH_URI=${OIDC_AUTH_URI}
+    #  - OIDC_TOKEN_URI=${OIDC_TOKEN_URI}
+    #  - OIDC_USERINFO_URI=${OIDC_USERINFO_URI}
+    #  - OIDC_DISPLAY_NAME=${OIDC_DISPLAY_NAME}
+    #  - OIDC_USERNAME_CLAIM=email
     #ports:
       #- 443:443
       #- 80:80
