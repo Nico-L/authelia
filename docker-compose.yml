@@ -28,7 +28,7 @@ services:
     user: root
     restart: always
     container_name: outline
-    command: sh -c "yarn start --env=production-ssl-disabled"
+    command: sh -c "yarn start --env=production"
     depends_on:
       - outlinePostgres
       - outlineRedis
