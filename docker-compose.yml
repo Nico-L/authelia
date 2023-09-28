@@ -31,7 +31,6 @@ services:
     depends_on:
       - outline_postgres
       - outline_redis
-      - outline_minio
     environment:
       - PGSSLMODE=disable
       - SECRET_KEY=${SECRET_KEY}
