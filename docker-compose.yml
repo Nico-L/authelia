@@ -14,7 +14,6 @@ services:
     command: sh -c "yarn start --env=production-ssl-disabled"
     depends_on:
       - outlineRedis
-      - outlineMinio
     networks:
       - outline-internal
       - reverseproxy-nw
