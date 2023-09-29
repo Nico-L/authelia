@@ -6,6 +6,26 @@ services:
     networks:
       - outline-internal
       
+  outline_minio:
+    image: minio/minio
+    restart: always
+    container_name: outlineMinio
+    security_opt:
+      - label:disable
+    volumes:
+      - ./container-data/data:/data
+      - /etc/localtime:/etc/localtime:ro
+    #environment:
+    #  - MINIO_ROOT_USER=minio
+    #  - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+    #  - MINIO_BROWSER_REDIRECT_URL=${MINIO_BROWSER_REDIRECT_URL}
+    ports:
+      - 9000:9000
+      - 9001:9001
+    networks:
+      - reverseproxy-nw
+    command: "server /data --console-address :9001"
+      
   outline:
     image: outlinewiki/outline:latest
     user: root
