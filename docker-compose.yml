@@ -1,25 +1,35 @@
-services:
-  outlineRedis:
-    image: redis
-    restart: always
-    container_name: outlineredis
-    networks:
-      - outline-internal
-    
-  outline:
-    image: outlinewiki/outline:0.72.0-2
-    user: root
-    restart: always
-    container_name: outline
-    command: sh -c "yarn start --env=production-ssl-disabled"
-    depends_on:
-      - outlineRedis
-    volumes:
-      - storage-data:/var/lib/outline/data
-    networks:
-      - outline-internal
-      - reverseproxy-nw
+version: '3.3'
+
 networks:
-  outline-internal:
-  reverseproxy-nw:
-    external: true
+  netAuthelia:
+    driver: bridge
+
+services:
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
+    volumes:
+      - ./authelia:/config
+    networks:
+      - netAuthelia
+    expose:
+      - 9091
+    restart: unless-stopped
+    healthcheck:
+      ## In production the healthcheck section should be commented.
+      disable: true
+    environment:
+      - TZ=Europe/Paris
+
+  redis:
+    image: redis:alpine
+    container_name: redisAuthelia
+    volumes:
+      - ./redis:/data
+    networks:
+      - netAuthelia
+    expose:
+      - 6379
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Paris
