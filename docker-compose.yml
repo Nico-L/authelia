@@ -7,7 +7,7 @@ services:
       - outline-internal
     
   outline:
-    image: outlinewiki/outline:0.72.0-2
+    image: outlinewiki/outline:0.72.0
     user: root
     restart: always
     container_name: outline
